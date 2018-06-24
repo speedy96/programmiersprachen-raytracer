@@ -15,14 +15,17 @@ Sphere::Sphere( glm::vec3 const& mid, double const& &radius):
     radius_{radius},
     mid_{mid},
     Shape{}
-{};
+{std:::cout<<"child constructor" << '\n';};
 
 Sphere::Sphere(glm::vec2 const& mid, double const&radius, std::string const& name, Color const &color):
         mid_{mid},
         radius_{radius},
         Shape{name, color}
 
-{};
+{std::cout<< "child constructor "<< '\n';};
+
+Sphere::~Sphere()
+{std::cout << "child constructor" << '\n';}
 
 double Sphere::radius() const {
     return radius_;
