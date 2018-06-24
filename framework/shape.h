@@ -17,9 +17,10 @@ public:
 
     virtual double area()const;
     virtual double volume()const;
+    virtual std::ostream& print(std::ostream& os) const;
     std::string name()const;
     Color color()const;
-    virtual std::ostream& print(std::ostream& os);
+    
 
 private:
     std::string name_;

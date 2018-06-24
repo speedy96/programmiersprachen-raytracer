@@ -1,23 +1,16 @@
-//
-// Created by SYSTEM on 24.06.2018.
-//
+
 
 #include "sphere.h"
-#include "shape.h
 #include <glm/vec3.hpp>
 #include <cmath>
 #include <iostream>
 #include "ray.h"
 #include <glm/gtx/intersect.hpp>
+#include "shape.h"
 
-Sphere::Sphere( glm::vec3 const& mid, double const& &radius):
 
-    radius_{radius},
-    mid_{mid},
-    Shape{}
-{std:::cout<<"child constructor" << '\n';};
 
-Sphere::Sphere(glm::vec2 const& mid, double const&radius, std::string const& name, Color const &color):
+Sphere::Sphere(glm::vec3 const& mid, double const&radius, std::string const& name, Color const &color):
         mid_{mid},
         radius_{radius},
         Shape{name, color}
@@ -25,7 +18,7 @@ Sphere::Sphere(glm::vec2 const& mid, double const&radius, std::string const& nam
 {std::cout<< "child constructor "<< '\n';};
 
 Sphere::~Sphere()
-{std::cout << "child constructor" << '\n';}
+{std::cout << "child destructor" << '\n';};
 
 double Sphere::radius() const {
     return radius_;

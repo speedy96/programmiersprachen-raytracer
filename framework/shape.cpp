@@ -1,12 +1,13 @@
-#include "shape.hpp"
+#include "shape.h"
 #include "color.hpp"
 #include <iostream>
 #include <string>
 
-Shape::Shape(std::string name, Color color) :
+Shape::Shape(std::string const& name, Color const& color) :
         name_{ name },
         color_{ color }
         { std::cout << "Base constructor\n"; };
+
 
 Shape::~Shape()
 { std::cout << "Base destructor\n"; };

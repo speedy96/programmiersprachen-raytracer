@@ -13,7 +13,7 @@
 
 class Box :public Shape {
 public:
-    Box(glm::ve3 const& min, glm::vec3 const& max);
+   
     Box(glm::vec3 const& min, glm::vec3 const& max, std::string const& name, Color const& color);
     glm::vec3 min()const;
     glm::vec3 max()const;

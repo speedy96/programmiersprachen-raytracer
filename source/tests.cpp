@@ -6,8 +6,10 @@
 #include "../framework/sphere.h"
 #include "../framework/box.h"
 #include "../framework/color.hpp"
+#include "../framework/shape.h"
 #include <glm/glm.hpp>
 #include <glm/gtx/intersect.hpp>
+
 
 TEST_CASE ("Sphere tests", "[Sphere]"){
 
@@ -15,15 +17,15 @@ TEST_CASE ("Sphere tests", "[Sphere]"){
   double radius {4.5};
   Color color {1.0f,0.0f,1.0f};
   std::string name = "sphere2";
-  Sphere s1 {mid, radius};
-  Sphere s2 {mid, radius, name, color};
+  
+  Sphere s1 {mid, radius, name, color};
 
   SECTION("constructor tests"){
     REQUIRE(s1.mid().x==mid.x);
     REQUIRE(s1.mid().y==mid.y);
     REQUIRE(s1.mid().z==mid.z);
 
-    REQUIRE(s1.rad()==4.5);
+    REQUIRE(s1.radius()==4.5);
 
   }
 
@@ -33,8 +35,8 @@ TEST_CASE ("Sphere tests", "[Sphere]"){
   }
 
   SECTION("color and name tests"){
-    REQUIRE(s2.color().r==1.0f);
-    REQUIRE(s2.name().compare("sphere2")==0.0);
+    REQUIRE(s1.color().r==1.0f);
+    REQUIRE(s1.name().compare("sphere2")==0.0);
 
   }
 }
@@ -45,13 +47,12 @@ TEST_CASE ("box tests", "[box]"){
   Color color {1.0f,0.0f,1.0f};
   std::string name = "box2";
 
-  Box b1 {min, max};
-  Box b2 {min, max, name, color};
+  Box b1 {min, max, name, color};
 
   SECTION("constructor tests"){
-    REQUIRE(b1.min().x==mid.x);
-    REQUIRE(b1.min().y==mid.y);
-    REQUIRE(b1.min().z==mid.z);
+    REQUIRE(b1.min().x==min.x);
+    REQUIRE(b1.min().y==min.y);
+    REQUIRE(b1.min().z==min.z);
 
     REQUIRE(b1.max().x==max.x);
     REQUIRE(b1.max().y==max.y);
@@ -65,8 +66,8 @@ TEST_CASE ("box tests", "[box]"){
     }
 
   SECTION("color and name tests"){
-    REQUIRE(b2.name().compare("box2")==0.0);
-    REQUIRE(b2.color().b == 1.0f);
+    REQUIRE(b1.name().compare("box2")==0.0);
+    REQUIRE(b1.color().b == 1.0f);
   }
 
 
@@ -81,7 +82,7 @@ glm :: vec3 ray_origin {0.0f, 0.0f, 0.0f};
 // v = glm :: normalize ( some_vector )
 glm :: vec3 ray_direction {0.0f, 0.0f, 1.0f};
 // Sphere
-glm :: vec3 sphere_center {0.0 f ,0.0f, 5.0f};
+glm :: vec3 sphere_center {0.0f,0.0f, 5.0f};
 float sphere_radius {1.0f};
 float distance = 0.0f;
 auto result = glm :: intersectRaySphere (
