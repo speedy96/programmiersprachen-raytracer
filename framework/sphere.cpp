@@ -3,19 +3,22 @@
 //
 
 #include "sphere.h"
+#include "shape.h
 #include <glm/vec3.hpp>
 #include <cmath>
+#include <iostream>
 
 Sphere::Sphere( glm::vec3 const& mid, double const& &radius):
-    Shape(),
+
     radius_{radius},
-    mid_{mid}
+    mid_{mid},
+    Shape{}
 {};
 
 Sphere::Sphere(glm::vec2 const& mid, double const&radius, std::string const& name, Color const &color):
-        Shape{name, color},
+        mid_{mid},
         radius_{radius},
-        mid_{mid}
+        Shape{name, color}
 
 {};
 
@@ -34,4 +37,13 @@ double Sphere::area() const {
 
 double Sphere::volume() const {
     double volume = (4.0/3.0) * M_PI* pow(radius_,3);
+}
+
+std::ostream& Sphere::print(std::ostream &os) const {
+    Shape::print(os);
+    os<<"Area: " <<area()<<'\n';
+    os<<"Volume: "<<volume()<<'\n';
+    os<<"Radius: " <<radius()<<'\n';
+    os<<"Center: (" <<mid_.x<<","<<mid_.y<<")"<<'\n';
+    return os;
 }

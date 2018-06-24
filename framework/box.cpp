@@ -5,12 +5,11 @@
 #include "box.h"
 #include <glm/vec3.hpp>
 #include <cmath>
-#include "shape.h"
 #include <string>
 #include "color.hpp"
 
 Box::Box(glm::ve3 const& min,glm::vec3 const& max) :
-    Shape(),
+    Shape{},
     min_{min},
     max_{max}
 {};
@@ -44,4 +43,13 @@ double Box::volume() const {
     double z{abs(max_.z- min_.z)};  //höhe
     double volume = x*y*z;
     return volume;
+}
+
+std::ostream& Box::print(std::ostream& os)const {
+    Shape::print(os);
+    os<<"Area: " <<area()<<'\n';
+    os<<"Volume: "<<volume()<<'\n';
+    os<<"Minimum: "<<min_.x<<","<<min_.y<<","<<min_.z<< ")" <<'\n';
+    os<<"Maximum: "<<max_.x<<","<<max_.y<<","<<max_.z<< ")" <<'\n';
+    return os;
 }

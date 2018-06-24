@@ -9,6 +9,7 @@
 #include <glm/vec3.hpp>
 #include "color.hpp"
 #include <string>
+#include <iostream>
 
 class Box :public Shape {
 public:
@@ -17,7 +18,8 @@ public:
     glm::vec3 min()const;
     glm::vec3 max()const;
     double area()const override;
-    double area()const override;
+    double volume()const override;
+    std::ostream& print(std::ostream& os)const override;
 
 private:
     glm::vec3 min_;

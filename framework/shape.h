@@ -7,30 +7,25 @@
 
 #include "color.hpp"
 #include <string>
+#include <iostream>
 
 class Shape{
 public:
 
-    Shape(std::string const& name, Color const& color):
-            name_{name},
-            color_{color} {};
+    Shape(std::string const& name, Color const& color);
+    ~Shape();
 
-    Shape () :
-            name_{"unnamed"},
-            color_{0.0,0.0,0.0} {};
-
-    virtual double area()const = 0;
-    virtual double volume()const = 0;
-    std::string name()const {
-        return name_;
-    }
-    Color color()const {
-        return color_;
-    }
+    virtual double area()const;
+    virtual double volume()const;
+    std::string name()const;
+    Color color()const;
+    virtual std::ostream& print(std::ostream& os);
 
 private:
     std::string name_;
     Color color_;
 };
+
+std::ostream& operator<<(std::ostream& os, Shape const& s);
 
 #endif //PROJECT_SHAPE_H

@@ -6,7 +6,7 @@
 #define PROJECT_SPHERE_H
 
 #include <glm/vec3.hpp>
-#include "shape.h"
+#include <iostream>
 #include "color.hpp"
 #include <string>
 
@@ -20,6 +20,7 @@ public:
     double radius() const;
     double area() const override;
     double volume() const override;
+    std::ostream& print (std::ostream& os)const override;
 
 
 private:
