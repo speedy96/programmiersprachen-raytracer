@@ -18,10 +18,12 @@ Shape::~Shape()
 };
 
 std::string Shape::name()const
-{return name_;};
+{return name_;
+};
 
 Color Shape::color()const
-{return color_;};
+{return color_;
+};
 
 std::ostream& Shape::print(std::ostream& os)const{
     return os<<"Shape name: "<<name_<<",\n"<<"Shape color: "<<color_;
