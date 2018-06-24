@@ -18,20 +18,38 @@ TEST_CASE ("Sphere tests", "[Sphere]"){
 
     REQUIRE(s1.rad()==4.5);
 
+  }
+
+  SECTION("method tests"){
+    REQUIRE(s1.area()==Approx(153.938));
+    REQUIRE(s1.volume()==Approx(179.594));
+  }
+}
+
+TEST_CASE ("box tests", "[box]"){
+  glm::vec3 min {1.0,1.0,1.0};
+  glm::vec3 max{1.0,-3.0,2.0};
+  Box b1 {min, max};
+
+  SECTION("constructor tests"){
     REQUIRE(b1.min().x==mid.x);
     REQUIRE(b1.min().y==mid.y);
     REQUIRE(b1.min().z== mid.z);
 
     REQUIRE(b1.max().x==max.x);
     REQUIRE(b1.max().y==max.y);
-    REQUIRE(b1.max().z== max.z);
+    REQUIRE(b1.max().z== max.z);}
+
+
+   SECTION("method tests")  {
+
+    REQUIRE(b1.area()==Approx(96.0));
+    REQUIRE(b1.volume()==Approx(64));
 
   }
 
-  SECTION("method tests"){
-    REQUIRE(s2.area()==Approx(153.938));
-    REQUIRE(s2.volume()==Approx(179.594));
-  }
+
+
 }
 
 
