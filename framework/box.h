@@ -1,7 +1,3 @@
-//
-// Created by SYSTEM on 24.06.2018.
-//
-
 #ifndef PROJECT_BOX_H
 #define PROJECT_BOX_H
 
@@ -11,7 +7,8 @@
 #include <string>
 #include <iostream>
 
-class Box :public Shape {
+class Box : public Shape 
+{
 public:
    
     Box(glm::vec3 const& min, glm::vec3 const& max, std::string const& name, Color const& color);

@@ -1,13 +1,11 @@
-//
-// Created by SYSTEM on 24.06.2018.
-//
 
+#include "shape.h"
 #include "box.h"
 #include <glm/vec3.hpp>
 #include <cmath>
 #include <string>
 #include "color.hpp"
-#include "shape.h"
+
 
 
 

@@ -1,30 +1,27 @@
-//
-// Created by SYSTEM on 24.06.2018.
-//
-
 #ifndef PROJECT_SHAPE_H
 #define PROJECT_SHAPE_H
 
-#include "color.hpp"
 #include <string>
+#include "color.hpp"
 #include <iostream>
 
-class Shape{
-public:
+class Shape
+{
+    public:
+        
+        Shape(std::string const& name,Color const& color);
+        virtual ~Shape();
 
-    Shape(std::string const& name, Color const& color);
-    ~Shape();
+        virtual double area()const = 0;
+        virtual double volume()const = 0;
+        std::string name()const;
+        Color color()const;
 
-    virtual double area()const;
-    virtual double volume()const;
-    virtual std::ostream& print(std::ostream& os) const;
-    std::string name()const;
-    Color color()const;
-    
+        virtual std::ostream& print(std::ostream& os)const;
 
-private:
-    std::string name_;
-    Color color_;
+    private:
+        std::string name_;
+        Color color_;   
 };
 
 std::ostream& operator<<(std::ostream& os, Shape const& s);

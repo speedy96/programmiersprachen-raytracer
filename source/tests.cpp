@@ -30,8 +30,8 @@ TEST_CASE ("Sphere tests", "[Sphere]"){
   }
 
   SECTION("method tests"){
-    REQUIRE(s1.area()==Approx(153.938));
-    REQUIRE(s1.volume()==Approx(179.594));
+    REQUIRE(s1.area()==Approx(254.4690049408));
+    REQUIRE(s1.volume()==Approx(381.7035074112));
   }
 
   SECTION("color and name tests"){
@@ -45,7 +45,7 @@ TEST_CASE ("box tests", "[box]"){
   glm::vec3 min {1.0,1.0,1.0};
   glm::vec3 max{1.0,-3.0,2.0};
   Color color {1.0f,0.0f,1.0f};
-  std::string name = "box2";
+  std::string name = "box1";
 
   Box b1 {min, max, name, color};
 
@@ -61,28 +61,29 @@ TEST_CASE ("box tests", "[box]"){
 
    SECTION("method tests")  {
 
-    REQUIRE(b1.area()==Approx(96.0));
-    REQUIRE(b1.volume()==Approx(64));
+    REQUIRE(b1.area()==Approx(8.0));
+    REQUIRE(b1.volume()==Approx(0.0));
     }
 
   SECTION("color and name tests"){
-    REQUIRE(b1.name().compare("box2")==0.0);
     REQUIRE(b1.color().b == 1.0f);
+    REQUIRE(b1.name().compare("box1")==0.0);
+    
   }
 
 
 }
 
-TEST_CASE (" intersect_ray_sphere ", "[ intersect ]")
+TEST_CASE("intersect_ray_sphere ")
 {
 // Ray
-glm :: vec3 ray_origin {0.0f, 0.0f, 0.0f};
+glm::vec3 ray_origin {0.0f, 0.0f, 0.0f};
 // ray direction has to be normalized !
 // you can use :
 // v = glm :: normalize ( some_vector )
-glm :: vec3 ray_direction {0.0f, 0.0f, 1.0f};
+glm::vec3 ray_direction {0.0f, 0.0f, 1.0f};
 // Sphere
-glm :: vec3 sphere_center {0.0f,0.0f, 5.0f};
+glm::vec3 sphere_center {0.0f,0.0f, 5.0f};
 float sphere_radius {1.0f};
 float distance = 0.0f;
 auto result = glm :: intersectRaySphere (
@@ -128,10 +129,12 @@ delete s1;
 delete s2;
 }
 
+
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);
 }
+
 
 
 

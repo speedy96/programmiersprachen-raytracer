@@ -1,5 +1,3 @@
-
-
 #include "sphere.h"
 #include <glm/vec3.hpp>
 #include <cmath>
