@@ -11,7 +11,10 @@ TEST_CASE ("Sphere tests", "[Sphere]"){
 
   glm::vec3 mid {0.0,0.0,0.0};
   double radius {4.5};
+  Color color {1.0f,0.0f,1.0f};
+  std::string name = "sphere2";
   Sphere s1 {mid, radius};
+  Sphere s2 {mid, radius, name, color};
 
   SECTION("constructor tests"){
     REQUIRE(s1.mid().x==mid.x);
@@ -26,30 +29,43 @@ TEST_CASE ("Sphere tests", "[Sphere]"){
     REQUIRE(s1.area()==Approx(153.938));
     REQUIRE(s1.volume()==Approx(179.594));
   }
+
+  SECTION("color and name tests"){
+    REQUIRE(s2.color().r==1.0f);
+    REQUIRE(s2.name().compare("sphere2")==0.0);
+
+  }
 }
 
 TEST_CASE ("box tests", "[box]"){
   glm::vec3 min {1.0,1.0,1.0};
   glm::vec3 max{1.0,-3.0,2.0};
+  Color color {1.0f,0.0f,1.0f};
+  std::string name = "box2";
+
   Box b1 {min, max};
+  Box b2 {min, max, name, color};
 
   SECTION("constructor tests"){
     REQUIRE(b1.min().x==mid.x);
     REQUIRE(b1.min().y==mid.y);
-    REQUIRE(b1.min().z== mid.z);
+    REQUIRE(b1.min().z==mid.z);
 
     REQUIRE(b1.max().x==max.x);
     REQUIRE(b1.max().y==max.y);
-    REQUIRE(b1.max().z== max.z);}
+    REQUIRE(b1.max().z==max.z);}
 
 
    SECTION("method tests")  {
 
     REQUIRE(b1.area()==Approx(96.0));
     REQUIRE(b1.volume()==Approx(64));
+    }
 
+  SECTION("color and name tests"){
+    REQUIRE(b2.name().compare("box2")==0.0);
+    REQUIRE(b2.color().b == 1.0f);
   }
-
 
 
 }
