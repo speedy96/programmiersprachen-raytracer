@@ -1,9 +1,11 @@
 #define CATCH_CONFIG_RUNNER
 #include <catch.hpp>
-#include "tests.hpp"
+
 #include <cmath>
 #include <glm/vec3.hpp>
-#include "sphere.h"
+#include "../framework/sphere.h"
+#include "../framework/box.h"
+#include "../framework/color.hpp"
 
 TEST_CASE ("Sphere tests", "[Sphere]"){
 

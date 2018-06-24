@@ -7,8 +7,16 @@
 #include <cmath>
 
 Sphere::Sphere( glm::vec3 const& mid, double const& &radius):
+    Shape(),
     radius_{radius},
     mid_{mid}
+{};
+
+Sphere::Sphere(glm::vec2 const& mid, double const&radius, std::string const& name, Color const &color):
+        Shape{name, color},
+        radius_{radius},
+        mid_{mid}
+
 {};
 
 double Sphere::radius() const {
