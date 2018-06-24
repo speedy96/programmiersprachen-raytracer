@@ -8,20 +8,19 @@ install(TARGETS example DESTINATION .)
 add_executable(raytracer raytracer.cpp)
 
 target_link_libraries(raytracer ${FRAMEWORK_NAME} ${LIBRARIES}
-  glfw
-  ${GLFW_LIBRARIES}
-  )
+        glfw
+        ${GLFW_LIBRARIES}
+        )
 add_dependencies(raytracer glfw ${FRAMEWORK_NAME} ${COPY_BINARY})
 
 install(TARGETS raytracer DESTINATION .)
 
 # Build tests
 add_executable(tests
+        tests.cpp
+        ../framework/sphere.cpp
 
-  sphere.cpp      )
-
-
+        )
 target_link_libraries(tests
-  ${GLFW_LIBRARIES}
-  )
-
+        ${GLFW_LIBRARIES}
+        )
