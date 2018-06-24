@@ -20,9 +20,9 @@ public:
     ~Sphere ();
     glm::vec3 mid() const;
     double radius() const;
-    double area() const;
-    double volume() const;
-    std::ostream& print (std::ostream& os)const;
+    double area() const override;
+    double volume() const override;
+    std::ostream& print (std::ostream& os)const override;
     bool intersect(Ray const& ray, float& distance) const;
 
 
