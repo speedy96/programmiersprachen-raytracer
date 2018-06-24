@@ -7,6 +7,8 @@
 #include <glm/vec3.hpp>
 #include <cmath>
 #include <iostream>
+#include "ray.h"
+#include <glm/gtx/intersect.hpp>
 
 Sphere::Sphere( glm::vec3 const& mid, double const& &radius):
 
@@ -46,4 +48,8 @@ std::ostream& Sphere::print(std::ostream &os) const {
     os<<"Radius: " <<radius()<<'\n';
     os<<"Center: (" <<mid_.x<<","<<mid_.y<<")"<<'\n';
     return os;
+}
+
+bool Sphere::intersect(Ray const& ray, float& distance) const{
+    return glm::intersectRaySphere(ray.origin,ray.direction,mid_,radius_*radius_,distance);
 }

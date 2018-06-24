@@ -9,6 +9,8 @@
 #include <iostream>
 #include "color.hpp"
 #include <string>
+#include "ray.h"
+
 
 class Sphere :public Shape
 {
@@ -21,6 +23,8 @@ public:
     double area() const override;
     double volume() const override;
     std::ostream& print (std::ostream& os)const override;
+    bool intersect(Ray const& ray, float& distance) const;
+
 
 
 private:
